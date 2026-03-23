@@ -1,17 +1,4 @@
-/*
- * ESP32 Chat Portal – Complete Implementation (FINAL)
- * 
- * Features:
- * - Wi-Fi Access Point with captive portal
- * - User registration (unique username, password in RAM)
- * - Real‑time chat via WebSockets
- * - Admin page (separate login) with full control:
- *     kick (with ban timer), mute all, clear chat, edit any message,
- *     change Wi-Fi password, shut down portal, edit usernames, etc.
- * - Messages stored only in RAM (max 50 messages, 50 chars each)
- * - Max 8 concurrent users (rejects new connections beyond that)
- * - No persistent storage – everything lost on power cycle
- */
+
 
 #include <WiFi.h>
 #include <DNSServer.h>
@@ -72,7 +59,6 @@ bool muteAll = false;
 int adminClientId = -1;
 bool portalShutdown = false;
 
-// ==================== HELPER FUNCTIONS ====================
 void addMessage(const String& username, const String& content) {
   if (messageCount >= max_messages) {
     for (int i = 1; i < max_messages; i++) {
@@ -196,7 +182,7 @@ void sendMessageHistory(int clientId) {
   }
 }
 
-// ==================== WEBSOCKET EVENT HANDLER ====================
+// WEBSOCKET EVENT HANDLER
 void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length) {
   switch(type) {
     case WStype_DISCONNECTED:
@@ -422,7 +408,7 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length
   }
 }
 
-// ==================== HTTP HANDLERS ====================
+//HTTP HANDLERS
 void handleRoot() {
   String html = R"rawliteral(
 <!DOCTYPE html>
@@ -725,7 +711,7 @@ void handleNotFound() {
   server.send(302, "text/plain", "");
 }
 
-// ==================== SETUP ====================
+//SETUP
 void setup() {
   Serial.begin(115200);
   
@@ -748,7 +734,7 @@ void setup() {
   Serial.println("Chat portal started. Connect to Wi-Fi: " + String(ap_ssid) + " with password: " + String(ap_password));
 }
 
-// ==================== LOOP ====================
+//LOOP
 void loop() {
   dnsServer.processNextRequest();
   server.handleClient();
