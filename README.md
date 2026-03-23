@@ -13,22 +13,22 @@ This project demonstrates how an ESP32 can function as a fully self-contained co
 
 ## Features
 
--📡 Wi-Fi Access Point – no router required
--🌐 Captive Portal – automatic redirection on connect
--👤 User Authentication – unique username & password (RAM only)
--⚡ Real-time Messaging via WebSockets
--🛠 Admin Panel
-   Kick users (temporary bans)
-   Mute all users
-   Clear chat
-   Edit messages (silent overwrite)
-   Edit usernames
-   Enable/disable chat
-   Change Wi-Fi password
-   Shut down portal
--🌙 Dark UI – clean and readable
--🧠 Memory-safe design – max 8 users
--🔒 No persistent storage – full reset on reboot (privacy-first)
+-📡 Wi-Fi Access Point – no router required         
+-🌐 Captive Portal – automatic redirection on connect        
+-👤 User Authentication – unique username & password (RAM only)      
+-⚡ Real-time Messaging via WebSockets                
+-🛠 Admin Panel        
+   Kick users (temporary bans)    
+   Mute all users    
+   Clear chat          
+   Edit messages (silent overwrite)          
+   Edit usernames          
+   Enable/disable chat              
+   Change Wi-Fi password            
+   Shut down portal            
+-🌙 Dark UI – clean and readable            
+-🧠 Memory-safe design – max 8 users                    
+-🔒 No persistent storage – full reset on reboot (privacy-first)                     
 
 ## Hardware Requirements
 
