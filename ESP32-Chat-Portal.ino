@@ -1,5 +1,3 @@
-
-
 #include <WiFi.h>
 #include <DNSServer.h>
 #include <WebServer.h>
