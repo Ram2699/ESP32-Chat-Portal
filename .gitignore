@@ -1,0 +1,5 @@
+*.ino.elf
+*.ino.bin
+*.ino.with_bootloader.bin
+*.ino.dSYM/
+build/
